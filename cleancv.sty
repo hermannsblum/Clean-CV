@@ -1,0 +1,106 @@
+\NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesPackage{cleancv}[2017/01/24 v0.01 CV template]
+
+% general settings
+\setlength{\parskip}{5pt}
+
+\RequirePackage{calc}
+\RequirePackage{ragged2e}
+\RequirePackage{xifthen}
+\RequirePackage[a4paper, portrait, top=25mm, left= 25mm, right= 25mm, bottom=25mm, footskip= 10mm]{geometry}
+
+% default sans-serif helvetica
+\renewcommand{\familydefault}{\sfdefault}
+
+% font styling for title
+\newcommand*{\cvtitle}[1]{
+    \title{#1}
+    \noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{#1}}}
+    \vspace{10pt}
+}
+
+% styling for section titles
+\renewcommand{\section}[1]{
+    \bigskip
+    \noindent{\fontfamily{ppl}\selectfont \Large \textit{#1}}
+    \nopagebreak % we do not want pagebreaks directly after headings
+    \bigskip
+    \nopagebreak
+}
+
+% cv picture
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
+\newcommand*{\cvimage}[1]{
+    \begin{wrapfigure}{R}{3.5cm+\parindent}
+    \vspace{-1cm}
+    \includegraphics[width=3.5cm]{#1}
+	\end{wrapfigure}
+}
+
+% header and footer
+\let\@author\@empty
+\usepackage{fancyhdr}
+\fancyhead[C]{\@title%  only print author if it is set
+\ifx\@author\@empty
+  \else{ - \@author}%
+  \fi}
+\renewcommand\headrulewidth{0pt}
+\fancyfoot[C]{\thepage}
+\pagestyle{fancy}
+
+% cv groups
+\newlength{\cvgrouptopmargin}
+\setlength{\cvgrouptopmargin}{5pt}
+\newlength{\cvgroupbottommargin}
+\setlength{\cvgroupbottommargin}{20pt}
+\newlength{\cvtopsep}
+\setlength{\cvtopsep}{3pt}
+\newlength{\cvbottomsep}
+\setlength{\cvbottomsep}{12pt}
+\newlength{\cvparskip}
+\newlength{\cvindent}
+\newlength{\cvleftcol}
+\newlength{\cvrightcol}
+
+
+\newenvironment{cvgroup}[1][0.2]{
+    \setlength{\cvleftcol}{#1\textwidth}
+    \setlength{\cvindent}{\parindent}
+    \setlength{\cvrightcol}{\textwidth-\cvleftcol-\cvindent-11.5pt-3pt}
+    \newcommand{\cvitem}[3][]{
+        \setlength{\cvparskip}{(\cvtopsep+\cvbottomsep)/2}
+        \vbox{
+            \parbox[t]{\cvleftcol}{
+                \vskip\cvtopsep%
+                \RaggedLeft% move text to the right
+                \ifthenelse{\isempty{##1}}%
+                    {}%
+                    {\textbf{##1}\\}%
+                ##2%
+                \vskip\cvbottomsep%
+            }%
+            \hspace{5pt}\vrule width 1.5pt\hspace{5pt}%
+            \parbox[t]{\cvrightcol}{
+                \renewcommand{\\}{\vskip7pt}
+                \setlength{\parindent}{0pt}
+                \renewcommand{\indent}{\hspace{\cvindent}}
+                \vskip\cvtopsep%
+                \ifthenelse{\isempty{##1}}%
+                    {}%
+                    {\vskip0.3pt}
+                ##3%
+                \vskip\cvbottomsep
+            }
+        }
+        \vspace{-1\lineskip}
+    }%
+    % extra whitespace before and after group
+    \vskip\cvgrouptopmargin%
+    \begin{minipage}{\textwidth}
+}{%
+    \end{minipage}%
+    \vskip\cvgroupbottommargin%
+}
+
+\endinput

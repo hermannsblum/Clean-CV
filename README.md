@@ -1,5 +1,7 @@
 # CV Template for LaTeX
 
+![example](./example.png =250x)
+
 ## Installation
 
 Download the `cleancv.sty` and include it to your document

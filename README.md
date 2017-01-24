@@ -1,6 +1,6 @@
 # CV Template for LaTeX
 
-![example](./example.png =250x)
+<img src="https://github.com/hermannsblum/latex-cv/blob/master/example.png" width="100">
 
 ## Installation
 

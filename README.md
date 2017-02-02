@@ -4,7 +4,7 @@
 
 ## Installation
 
-Download the `cleancv.sty` and include it to your document
+[Download](https://raw.githubusercontent.com/hermannsblum/Clean-CV/master/cleancv.sty) the `cleancv.sty` and include it to your document:
 
     \usepackage{cleancv}
 

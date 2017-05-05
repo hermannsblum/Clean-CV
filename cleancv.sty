@@ -57,7 +57,7 @@
 \newlength{\cvtopsep}
 \setlength{\cvtopsep}{3pt}
 \newlength{\cvbottomsep}
-\setlength{\cvbottomsep}{12pt}
+\setlength{\cvbottomsep}{7pt}
 \newlength{\cvparskip}
 \newlength{\cvindent}
 \newlength{\cvleftcol}
@@ -76,8 +76,8 @@
                 \RaggedLeft% move text to the right
                 \ifthenelse{\isempty{##1}}%
                     {}%
-                    {\textbf{##1}\\}%
-                ##2%
+                    {\textbf{\strut##1}\\}%
+                \strut##2%
                 \vskip\cvbottomsep%
             }%
             \hspace{5pt}\vrule width 1.5pt\hspace{5pt}%
@@ -89,7 +89,7 @@
                 \ifthenelse{\isempty{##1}}%
                     {}%
                     {\vskip0.3pt}
-                ##3%
+                \strut##3%
                 \vskip\cvbottomsep
             }
         }

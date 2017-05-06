@@ -1,6 +1,6 @@
 # CV Template for LaTeX
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example.png" width="500">
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="500">
 
 ## Installation
 
@@ -14,6 +14,7 @@ This class is only tested against the following document settings:
 
 ## Basic Usage
 
+### CV Items 
 Items in the CV always have content on the left and right side of the black line:
 
     \cvitem{left}{right}
@@ -40,22 +41,43 @@ A basic CV document should have a title and section names:
         \cvitem{Location of Birth}{north pole}
     \end{cvgroup}
 
+
+### Picture and Personal Information
+
+You have the option to add personal information and a picture in the right side of the CV page. This feature is called `cvinfo`.
+
+    \begin{cvinfo}
+        \cvpicture{path_tp_image.jpg}
+        \cvinfoitem{\textbf{Hermann Blum}}
+        \cvinfoitem[email]{itsme@mail.com}
+    \end{cvinfo}
+
+The picture will be sized to the standard for CVs, which is a width of 3.5 cm.
+
+You may encounter difficulties with the wrapping around this image. This is due to the implementation of `wrapfigure`, which is used by this template. Please use the optional argument to the info-group to specify the number of lines / `cvgroup`s that should wrap around this info bar:
+
+    \begin{cvinfo}[<some number>]
+
 ## Advanced Usage
 
-You can add a short bold description to every item by providing it as an optional arugment to `cvitem`:
+### Short Descriptions
+
+You can add a short bold description to every item by providing it as an optional argument to `cvitem`:
 
     \cvitem[Master]{1970 - 1977}{Advanced Studies\par\indent Creation of Latex CVs}
+
+### Design Parameters
+
+You can move the vertical black line of the `cvgroup` more to the left or to the right by specifying its position on the page. `pos` has to be a number between 0 (left) and 1 (right), it defaults to `0.2`.
+
+    \begin{cvgroup}[<pos>]
+
+### Author Name
 
 If you specify the author of the document, it will be added to the header (see example)
 
     \author{Hermann Blum}
 
-
-This feature is still a bit experimental, but you can add a portrait picture easily liek this:
-
-    \cvimage{example_fixtures/businesswoman-avatar-silhouette-by-Vexels.eps}
-
-The picture will be sized to the standard for CVs, which is a width of 3.5 cm.
 
 # Credit
 

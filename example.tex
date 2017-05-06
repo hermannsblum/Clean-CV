@@ -2,19 +2,23 @@
 \usepackage[utf8]{inputenc}
 \usepackage{cleancv}
 
+\usepackage{lipsum}
+
 \author{Hermann Blum}
 
 \begin{document}
-
+ 
+\begin{cvinfo}[15]
+	\cvpicture{example_fixtures/businesswoman-avatar-silhouette-by-Vexels-eps-converted-to.pdf}
+	\cvinfoitem{\textbf{Hermann Blum}}
+	\cvinfoitem[date of birth]{January 1, 2000}
+	\cvinfoitem[email]{hermann@mail.com}
+\end{cvinfo} 
 \cvtitle{Curriculum Vitae}
 
-\cvimage{example_fixtures/businesswoman-avatar-silhouette-by-Vexels.eps}
-
-\section{Personal}
+\section{Work Experience}
 \begin{cvgroup}
-	\cvitem{name}{Hermann Blum}
-	\cvitem{date of birth}{January 1, 2000}
-	\cvitem{location of birth}{north pole}
+	\cvitem{forever}{very long job description to show that the paragraph actually wraps around the picture}
 \end{cvgroup}
 
 \section{Education}

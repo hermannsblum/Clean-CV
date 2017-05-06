@@ -28,19 +28,9 @@
     \nopagebreak
 }
 
-% cv picture
-\RequirePackage{graphicx}
-\RequirePackage{wrapfig}
-\newcommand*{\cvimage}[1]{
-    \begin{wrapfigure}{R}{3.5cm+\parindent}
-    \vspace{-1cm}
-    \includegraphics[width=3.5cm]{#1}
-	\end{wrapfigure}
-}
-
 % header and footer
 \let\@author\@empty
-\usepackage{fancyhdr}
+\RequirePackage{fancyhdr}
 \fancyhead[C]{\@title%  only print author if it is set
 \ifx\@author\@empty
   \else{ - \@author}%
@@ -49,7 +39,8 @@
 \fancyfoot[C]{\thepage}
 \pagestyle{fancy}
 
-% cv groups
+
+% sizes
 \newlength{\cvgrouptopmargin}
 \setlength{\cvgrouptopmargin}{5pt}
 \newlength{\cvgroupbottommargin}
@@ -63,11 +54,30 @@
 \newlength{\cvleftcol}
 \newlength{\cvrightcol}
 
+% cv info + picture
+\RequirePackage{graphicx}
+\RequirePackage{wrapfig}
+\RequirePackage[showboxes]{textpos}
+\newenvironment{cvinfo}[1][1]{%
+    \wrapfigure[#1]{r}{3.5cm + \parindent}%
+    \RaggedLeft
+    \newcommand{\cvpicture}[1]{%
+        \includegraphics[width=3.5cm]{##1}%
+    }
+    \newcommand{\cvinfoitem}[2][]{%
+        \vskip\cvgrouptopmargin
+        {\footnotesize ##1}\vskip0pt
+        ##2%
+    }
+}{%
+    \endwrapfigure%
+}%
 
+% cv groups
 \newenvironment{cvgroup}[1][0.2]{
     \setlength{\cvleftcol}{#1\textwidth}
     \setlength{\cvindent}{\parindent}
-    \setlength{\cvrightcol}{\textwidth-\cvleftcol-\cvindent-11.5pt-3pt}
+    \setlength{\cvrightcol}{\linewidth-\cvleftcol-\cvindent-11.5pt-3pt}
     \newcommand{\cvitem}[3][]{
         \setlength{\cvparskip}{(\cvtopsep+\cvbottomsep)/2}
         \vbox{
@@ -97,7 +107,7 @@
     }%
     % extra whitespace before and after group
     \vskip\cvgrouptopmargin%
-    \begin{minipage}{\textwidth}
+    \begin{minipage}{\linewidth}
 }{%
     \end{minipage}%
     \vskip\cvgroupbottommargin%

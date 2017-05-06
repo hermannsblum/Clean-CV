@@ -1,0 +1,222 @@
+\documentclass[utf8, a4paper, 11pt, helvetica]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+
+% general settings
+\setlength{\parskip}{5pt}
+\usepackage{calc}
+\usepackage{ragged2e}
+\usepackage{xifthen}
+
+% page format
+\usepackage[a4paper, portrait, top=25mm, left= 25mm, right= 25mm, bottom=25mm, footskip= 10mm]{geometry}
+%showframe for testing
+
+% default sans-serif helvetica
+\renewcommand{\familydefault}{\sfdefault}
+
+% font styling for title
+\newcommand*{\cvtitle}[1]{
+    \noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{#1}}}
+    \vspace{10pt}
+}
+
+% styling for section titles
+\renewcommand{\section}[1]{
+    \bigskip
+    \noindent{\fontfamily{ppl}\selectfont \Large \textit{#1}}
+    \nopagebreak % we do not want pagebreaks directly after headings
+    \bigskip
+    \nopagebreak
+}
+
+% cv picture
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage[showboxes]{textpos}
+\newcommand*{\cvimage}[1]{
+    test
+}
+
+% header and footer
+\usepackage{fancyhdr}
+\fancyhead[C]{Lebenslauf - Hermann Blum}
+\renewcommand\headrulewidth{0pt}
+\fancyfoot[C]{\thepage}
+\pagestyle{fancy}
+
+
+% cv groups
+\newlength{\cvgrouptopmargin}
+\setlength{\cvgrouptopmargin}{5pt}
+\newlength{\cvgroupbottommargin}
+\setlength{\cvgroupbottommargin}{20pt}
+\newlength{\cvtopsep}
+\setlength{\cvtopsep}{3pt}
+\newlength{\cvbottomsep}
+\setlength{\cvbottomsep}{7pt}
+\newlength{\cvparskip}
+\newlength{\cvindent}
+\newlength{\cvleftcol}
+\newlength{\cvrightcol}
+
+
+\newenvironment{cvgroup}[1][0.2]{
+    \setlength{\cvleftcol}{#1\textwidth}
+    \setlength{\cvindent}{\parindent}
+    \setlength{\cvrightcol}{\linewidth-\cvleftcol-\cvindent-11.5pt-3pt}
+    \newcommand{\cvitem}[3][]{
+        \setlength{\cvparskip}{(\cvtopsep+\cvbottomsep)/2}
+        \vbox{
+            \parbox[t]{\cvleftcol}{
+                \vskip\cvtopsep%
+                \RaggedLeft % move text to the right
+                \ifthenelse{\isempty{##1}}%
+                	{}%
+                	{\textbf{\strut##1}\\}
+                \strut##2%
+                \vskip\cvbottomsep%
+            }%
+            \hspace{5pt}\vrule width 1.5pt\hspace{5pt}%
+            \parbox[t]{\cvrightcol}{
+                \renewcommand{\\}{\vskip7pt}
+                \setlength{\parindent}{0pt}
+                \renewcommand{\indent}{\hspace{\cvindent}}
+                \vskip\cvtopsep%
+                \ifthenelse{\isempty{##1}}%
+                	{}%
+                	{\vskip0.3pt}
+                \strut##3%
+                \vskip\cvbottomsep
+            }
+        }
+        \vspace{-1\lineskip}
+    }%
+    % extra whitespace before and after group
+    \vskip\cvgrouptopmargin%
+    \begin{minipage}{\linewidth}
+}{%
+    \end{minipage}%
+    \vskip\cvgroupbottommargin%
+}
+
+
+
+%testing
+\usepackage{lipsum}
+\usepackage{float}
+\floatstyle{boxed} 
+\restylefloat{figure}
+\let\svparbox\parbox
+\fboxsep=-\fboxrule
+\renewcommand\parbox[3][c]{\fbox{\svparbox[#1]{#2}{#3}}}
+
+
+\begin{document}
+
+
+\iffalse
+\begin{textblock}{5}(10, 2)
+	hallo
+\end{textblock}
+\fi
+
+
+\begin{wrapfigure}[3]{r}{3.5cm + \parindent}
+	\RaggedLeft
+    \includegraphics[width=3.5cm]{example_fixtures/businesswoman-avatar-silhouette-by-Vexels-eps-converted-to.pdf}\vskip\cvbottomsep
+    \textbf{Hermann Blum}\vskip\cvtopsep
+    {\footnotesize date of birth}\vskip0pt
+    13. Dezember 1993\vskip\cvtopsep
+    {\footnotesize email}\\
+    mail@hermannblum.de
+\end{wrapfigure}
+\cvtitle{Lebenslauf}
+
+
+\iffalse
+\section{Persönliches}
+\begin{cvgroup}
+\cvitem{name}{Hermann Blum}
+\cvitem{geburtsdatum}{13. Dezember 1993\lipsum[20]}
+\cvitem{Geburtsort}{Düsseldorf}
+\cvitem{Staatsangehörigkeit}{Deutsch} 
+\end{cvgroup}
+\fi
+
+\section{Ausbildung und Weiterbildung}
+
+\iffalse
+\begin{wrapfigure}[2]{r}{3.5cm}
+    \includegraphics[width=3.5cm]{example_fixtures/businesswoman-avatar-silhouette-by-Vexels-eps-converted-to.pdf}
+\end{wrapfigure}\ \vspace{-1\baselineskip}
+\fi
+\begin{cvgroup}
+\cvitem[Master]{seit 2016}{MSc Elektrotechnik und Informationstechnologie an der Eidgenössischen Technischen Hochschule Zürich}
+\cvitem[Erasmus]{2015 bis 2016}{Auslandsaufenthalt am Imperial College London}  
+\cvitem[Bachelor]{2012 bis 2016}{BSc Elektrotechnik und Informationstechnologie an der Eidgenössischen Technischen Hochschule Zürich}
+\end{cvgroup}
+
+\begin{cvgroup}
+% \cvitem{2000 bis 2003}{Don-Bosco-Grundschule Haan}
+\cvitem[Abitur]{2003 bis 2012}{Städt. Gymnasium Haan\par\indent Abschluss mit Abitur}    
+\end{cvgroup}
+
+\iffalse
+\begin{cvgroup}
+\cvitem{Juli 2012}{Praktikum im Fraunhofer Institut für Intelligente Analyse- und Informationssysteme}
+\cvitem{2013 und 2014}{verschiedene Hilfsassistenzen an der ETH Zürich}    
+\end{cvgroup}
+\fi
+
+\section{Erfahrung}
+\begin{cvgroup}
+%\cvitem{2007 bis 2012}{Jugendleitung und Koordination der Jugendarbeit in der lokalen Gemeinde}
+%\cvitem{2009 bis 2012}{Dozent an der Junior Uni Wuppertal für zahlreiche Seminare mit dem Thema „Robotik“}
+\cvitem[Steering Committee]{seit 2016}{Mitglied im Steering Committee des `Student Experts' Pool for Quality Assurance' der European Students' Union (ESU)}
+\cvitem[Audit]{2015}{Audit der Studienprogramme im Bereich Ingenieurswissenschaften an der Technischen Universität Tallinn}
+\cvitem[Vorstand]{2014 bis 2015}{Vorstand für Qualitätssicherung im Verband der Schweizer Studierendenschaften (VSS)}
+\cvitem[Vorstand]{2013 bis 2014}{Vorstand für Hochschulpolitik im Akademischen Maschinen- und Elektroingenieurverein an der ETH (AMIV)}
+\cvitem{seit 2013}{Studentischer Vertreter in zahlreichen Gremien an der ETH Zürich}
+\end{cvgroup}
+
+\section{Kenntnisse}
+\begin{cvgroup}
+\cvitem{Sprachen}{
+    %Latein(Latinum)\\ 
+    Englisch (C1)\\ 
+    Französisch (A2)}    
+\end{cvgroup}
+
+\begin{cvgroup}
+\cvitem{Qualitätssicherung an Hochschulen}{Trainings durch:\\
+Österreichische HochschülerInnenschaft (ÖH), 2014\\
+Verband der Schweizer Studierendenschaften (VSS), 2014\\
+ENQA, 2016}
+\end{cvgroup}
+
+\section{Auszeichnungen und Förderungen}
+\begin{cvgroup}
+\cvitem{seit Oktober 2012}{Stipendium des Cusanuswerkes}
+\cvitem{seit Dezember 2012}{Stipendium der Studienstiftung des Deutschen Volkes}  
+% \cvitem{Oktober 2014}{Rotary Youth Leadership Award}  
+\end{cvgroup}
+
+
+
+%\begin{cvgroup}
+%\cvitem{Engagement}{
+%    Experte im Akkreditierungspool der European Student's Union
+%}
+%\cvitem{Interessen}{Musik (Horn im Orchester)}
+%\end{cvgroup}
+
+\vskip 40pt
+\includegraphics[height=2cm]{example_fixtures/signature.png}\\
+Zürich, \today
+
+
+
+\end{document}
+

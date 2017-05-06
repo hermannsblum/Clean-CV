@@ -1,6 +1,6 @@
 # CV Template for LaTeX
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="500">
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="300">
 
 ## Installation
 
@@ -84,3 +84,9 @@ If you specify the author of the document, it will be added to the header (see e
 credit for the nice portrait drawing goes to [Businesswoman avatar silhouette](https://www.vexels.com/vectors/png-svg/129677/businesswoman-avatar-silhouette) | Designed by Vexels.com
 
 credit for the signature example goes to [SilkySignature](https://github.com/ww6015132/SilkySignature)
+
+# Previews
+
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="500">
+
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example1.png" width="500">

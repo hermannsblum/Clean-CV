@@ -53,7 +53,7 @@ You have the option to add a picture on the right side of the CV page and also p
     \begin{cvinfo}
         \cvpicture{path_tp_image.jpg}
         \textbf{Hermann Blum}\\
-        \cvinfoitem[right]{\faEnvelopeO}{some@mail.com}
+        \cvinfoitem[right]{\faEnvelopeO}{some@mail.com}\\
     \end{cvinfo}
 
 The picture will be sized to the standard for CVs, which is a width of 3.5 cm.
@@ -72,9 +72,9 @@ You can add a short bold description to every item by providing it as an optiona
 
 ### Design Parameters
 
-You can move the vertical black line of the `cvgroup` more to the left or to the right by specifying its position on the page. `pos` has to be a number between 0 (left) and 1 (right), it defaults to `0.2`.
+You can move the vertical black line of the `cvgroup` more to the left or to the right by specifying its position on the page. `\cvbarpos` has to be a number between 0 (left) and 1 (right), it defaults to `0.2` and is a global setting for the document.
 
-    \begin{cvgroup}[<pos>]
+    \renewcommand{\cvbarpos}{0.3}
 
 ### Author Name
 

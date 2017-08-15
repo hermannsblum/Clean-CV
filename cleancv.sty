@@ -53,6 +53,7 @@
 \newlength{\cvindent}
 \newlength{\cvleftcol}
 \newlength{\cvrightcol}
+\newcommand{\cvbarpos}{0.2}
 
 % cv info + picture
 \RequirePackage{graphicx}
@@ -84,8 +85,8 @@
 }
 
 % cv groups
-\newenvironment{cvgroup}[1][0.2]{
-    \setlength{\cvleftcol}{#1\textwidth}
+\newenvironment{cvgroup}{
+    \setlength{\cvleftcol}{\cvbarpos\textwidth}
     \setlength{\cvindent}{\parindent}
     \setlength{\cvrightcol}{\linewidth-\cvleftcol-\cvindent-11.5pt-3pt}
     \newcommand{\cvitem}[3][]{

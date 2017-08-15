@@ -1,6 +1,6 @@
 # CV Template for LaTeX
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="300">
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300">
 
 ## Installation
 
@@ -44,12 +44,16 @@ A basic CV document should have a title and section names:
 
 ### Picture and Personal Information
 
-You have the option to add personal information and a picture in the right side of the CV page. This feature is called `cvinfo`.
+For personal information, the `cvinfoitem` command can help place text and icons (e.g. from the `fontawesome` package in a coherent way)
+
+    \cvinfoitem{\faEnvelopeO}{some@mail.com}
+
+You have the option to add a picture on the right side of the CV page and also place additional information there. This feature is called `cvinfo`.
 
     \begin{cvinfo}
         \cvpicture{path_tp_image.jpg}
-        \cvinfoitem{\textbf{Hermann Blum}}
-        \cvinfoitem[email]{itsme@mail.com}
+        \textbf{Hermann Blum}\\
+        \cvinfoitem[right]{\faEnvelopeO}{some@mail.com}
     \end{cvinfo}
 
 The picture will be sized to the standard for CVs, which is a width of 3.5 cm.
@@ -87,6 +91,6 @@ credit for the signature example goes to [SilkySignature](https://github.com/ww6
 
 # Previews
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example2.png" width="500">
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="500">
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/example1.png" width="500">
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="500">

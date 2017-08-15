@@ -17,7 +17,6 @@
     \thispagestyle{plain}
     \title{#1}
     \noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{#1}}}
-    \vspace{10pt}
 }
 
 % styling for section titles
@@ -65,14 +64,24 @@
     \newcommand{\cvpicture}[1]{%
         \includegraphics[width=3.5cm]{##1}%
     }
-    \newcommand{\cvinfoitem}[2][]{%
-        \vskip\cvgrouptopmargin
-        {\footnotesize ##1}\vskip0pt
-        ##2%
-    }
 }{%
     \endwrapfigure%
 }%
+%\newcommand{\cvinfoitem}[3][left]{%
+%    \vskip\cvgrouptopmargin
+%    {\footnotesize #1}\vskip0pt
+%    #2%
+%}
+\newcommand{\cvinfoitem}[3][left]{%
+    \noindent%
+    \def\identifier{\makebox[\baselineskip][c]{#2}}%
+    \ifthenelse{\equal{#1}{left}}{%
+        \makebox[\baselineskip][c]{#2}\ #3%
+    }{}%
+    \ifthenelse{\equal{#1}{right}}{%
+        \RaggedLeft#3\ \makebox[\baselineskip][c]{#2}%
+    }{}%
+}
 
 % cv groups
 \newenvironment{cvgroup}[1][0.2]{

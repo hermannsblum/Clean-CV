@@ -1,0 +1,39 @@
+\documentclass[utf8, a4paper, 11pt, helvetica]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{../cleancv}
+\usepackage{fontawesome}
+
+\usepackage{lipsum}
+
+\author{Hermann Blum}
+
+\begin{document}
+
+\begin{cvinfo}[15]
+	\cvpicture{example_fixtures/businesswoman-avatar-silhouette-by-Vexels-eps-converted-to.pdf}
+	\textbf{Hermann Blum}\\
+	\cvinfoitem[right]{\faEnvelopeO}{hermann@mail.com}\\
+	\cvinfoitem[right]{\faGithub}{hermannsblum}
+\end{cvinfo} 
+\cvtitle{Curriculum Vitae}
+
+\section{Work Experience}
+\begin{cvgroup}
+	\cvitem{forever}{very long job description to show that the paragraph actually wraps around the picture}
+\end{cvgroup}
+
+\section{Education}
+\begin{cvgroup}
+	\cvitem[Master]{1970 - 1977}{Advanced Studies\par\indent Creation of Latex CVs}
+	\cvitem[Bachelor]{1960 - 1970}{less advanced studies}
+\end{cvgroup}
+
+\begin{cvgroup}
+	\cvitem{before that}{school}
+\end{cvgroup}
+
+\vskip 40pt
+\includegraphics[height=2cm]{example_fixtures/signature.png}\\
+\indent North Pole, \today
+
+\end{document}

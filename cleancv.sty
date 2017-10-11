@@ -12,13 +12,6 @@
 % default sans-serif helvetica
 \renewcommand{\familydefault}{\sfdefault}
 
-% font styling for title
-\newcommand*{\cvtitle}[1]{
-    \thispagestyle{plain}
-    \title{#1}
-    \noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{#1}}}
-}
-
 % styling for section titles
 \renewcommand{\section}[1]{
     \bigskip
@@ -54,35 +47,6 @@
 \newlength{\cvleftcol}
 \newlength{\cvrightcol}
 \newcommand{\cvbarpos}{0.2}
-
-% cv info + picture
-\RequirePackage{graphicx}
-\RequirePackage{wrapfig}
-\RequirePackage[showboxes]{textpos}
-\newenvironment{cvinfo}[1][1]{%
-    \wrapfigure[#1]{r}{3.5cm + \parindent}%
-    \RaggedLeft
-    \newcommand{\cvpicture}[1]{%
-        \includegraphics[width=3.5cm]{##1}%
-    }
-}{%
-    \endwrapfigure%
-}%
-%\newcommand{\cvinfoitem}[3][left]{%
-%    \vskip\cvgrouptopmargin
-%    {\footnotesize #1}\vskip0pt
-%    #2%
-%}
-\newcommand{\cvinfoitem}[3][left]{%
-    \noindent%
-    \def\identifier{\makebox[\baselineskip][c]{#2}}%
-    \ifthenelse{\equal{#1}{left}}{%
-        \makebox[\baselineskip][c]{#2}\ #3%
-    }{}%
-    \ifthenelse{\equal{#1}{right}}{%
-        \RaggedLeft#3\ \makebox[\baselineskip][c]{#2}%
-    }{}%
-}
 
 % cv groups
 \newenvironment{cvgroup}{

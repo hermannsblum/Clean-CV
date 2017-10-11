@@ -88,4 +88,16 @@
     \vskip\cvgroupbottommargin%
 }
 
+% skill level indicators
+\RequirePackage{forloop}
+\RequirePackage{fontawesome}
+\newcommand{\skillbar}[2][3]{%
+    \newcounter{ct}%
+    {%
+    \scalebox{0.7}{%
+    \forloop{ct}{0}{\value{ct} < #2}{\footnotesize\hspace{1pt}\faCircle}%
+    \forloop{ct}{#2}{\value{ct} < #1}{\footnotesize\hspace{1pt}\faCircleO}%
+    }}%
+}
+
 \endinput

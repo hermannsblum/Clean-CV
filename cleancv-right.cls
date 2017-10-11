@@ -23,7 +23,7 @@
 \RequirePackage{wrapfig}
 \RequirePackage[showboxes]{textpos}
 \newenvironment{cvtitle}[2][]{%
-    \thispagestyle{plain}
+    \thispagestyle{firststyle}
     \ifx\@title\@empty
     \else{\noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{\@title}}
         % We do not want the title to fill the whole first line, therefore move the picture up again

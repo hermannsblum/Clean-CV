@@ -21,7 +21,7 @@
 % cv info + picture
 \RequirePackage{tikz}
 \newenvironment{cvtitle}[1][]{%
-    \thispagestyle{plain}
+    \thispagestyle{firststyle}
     \noindent\begin{tikzpicture}{remember picture,overlay}
     \node [anchor=north west, inner sep=0pt] at (current page.north west)
         {\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{\@title}}};

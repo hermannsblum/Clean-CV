@@ -38,6 +38,8 @@
    % Only show the footer if the total number of pages is not 1
    \fancyfoot[C]{\ifthenelse{\equal{\pageref{LastPage}}{1}}{}{\thepage\ / \pageref{LastPage}}}
 }
+% Reevaluate page margins at begin of document (to be compatible with geometry)
+\AtBeginDocument{\fancyhfoffset[E,O]{0pt}}
 
 % sizes
 \newlength{\cvgrouptopmargin}

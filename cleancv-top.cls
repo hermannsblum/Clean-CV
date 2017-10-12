@@ -1,5 +1,5 @@
-\ProvidesClass{cleancv-top}[2017 version]
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
+\ProvidesClass{cleancv-top}[2017/10/12 version]
 
 % --- Class structure: declaration of options part
 % ---
@@ -33,7 +33,8 @@
     % gets defined later, we need this macro here to put everything inside the environment in the one content note of the header graphic.
     \startcvinfo%
 }{%
-    \end{tikzpicture}%
+    \end{tikzpicture}\\%
+    \bigskip%
 }%
 % Anything in the cvtitle environment will be put into this content node. The node draws a minipage
 \def\startcvinfo#1\end{\node [anchor=north west, inner sep=0pt] at ([xshift=\parindent, yshift=-1cm]current page.north west)%

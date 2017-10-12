@@ -7,7 +7,6 @@
 \RequirePackage{calc}
 \RequirePackage{ragged2e}
 \RequirePackage{xifthen}
-\RequirePackage[a4paper, portrait, top=25mm, left= 25mm, right= 25mm, bottom=25mm, footskip= 10mm]{geometry}
 
 % default sans-serif helvetica
 \renewcommand{\familydefault}{\sfdefault}
@@ -36,6 +35,7 @@
 \fancypagestyle{firststyle}
 {
    \fancyhf{}
+   % Only show the footer if the total number of pages is not 1
    \fancyfoot[C]{\ifthenelse{\equal{\pageref{LastPage}}{1}}{}{\thepage\ / \pageref{LastPage}}}
 }
 
@@ -97,8 +97,8 @@
 % skill level indicators
 \RequirePackage{forloop}
 \RequirePackage{fontawesome}
+\newcounter{ct}
 \newcommand{\skillbar}[2][3]{%
-    \newcounter{ct}%
     {%
     \scalebox{0.7}{%
     \forloop{ct}{0}{\value{ct} < #2}{\footnotesize\hspace{1pt}\faCircle}%

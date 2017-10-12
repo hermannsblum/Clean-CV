@@ -1,4 +1,4 @@
-\ProvidesClass{cleancv-right}[2017 version]
+\ProvidesClass{cleancv-right}[2017/10/12 version]
 \NeedsTeXFormat{LaTeX2e}[1994/06/01]
 
 % --- Class structure: declaration of options part
@@ -9,7 +9,7 @@
 \DeclareOption*{\InputIfFileExists{\CurrentOption.min}{}{
 %
 \PassOptionsToClass{\CurrentOption}{article}}}
-% --- Class structure: execution of options part
+% --- Class structure: execution of options par
 % ---
 \ProcessOptions \relax
 % --- Class structure: declaration of options part
@@ -22,7 +22,7 @@
 \RequirePackage{graphicx}
 \RequirePackage{wrapfig}
 \RequirePackage[showboxes]{textpos}
-\newenvironment{cvtitle}[2][]{%
+\newenvironment{cvtitle}[2][0]{%
     \thispagestyle{firststyle}
     \ifx\@title\@empty
     \else{\noindent{\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{\@title}}
@@ -44,3 +44,5 @@
     %\end{minipage}
     \endwrapfigure%
 }%
+
+\endinput

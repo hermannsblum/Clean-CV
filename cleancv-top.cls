@@ -24,7 +24,7 @@
     \thispagestyle{firststyle}
     \noindent\begin{tikzpicture}{remember picture,overlay}
     \node [anchor=north west, inner sep=0pt] at (current page.north west)
-        {\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{\@title}}};
+        {\fontfamily{ppl}\selectfont \LARGE \textbf{\textsc{\@author}}};
     \ifthenelse{\isempty{#1}}{}
         {\node [anchor=north east, inner sep=0pt, outer sep=0pt] at ([xshift=\textwidth]current page.north west)
             {\includegraphics[width=3.5cm]{#1}};}
@@ -33,8 +33,7 @@
     % gets defined later, we need this macro here to put everything inside the environment in the one content note of the header graphic.
     \startcvinfo%
 }{%
-    \end{tikzpicture}\\%
-    \bigskip%
+    \end{tikzpicture}%
 }%
 % Anything in the cvtitle environment will be put into this content node. The node draws a minipage
 \def\startcvinfo#1\end{\node [anchor=north west, inner sep=0pt] at ([xshift=\parindent, yshift=-1cm]current page.north west)%

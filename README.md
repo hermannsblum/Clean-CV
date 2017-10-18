@@ -2,9 +2,10 @@
 
 <table>
     <tbody align="top">
-        <tr><td>cleancv-top</td><td>cleancv-right</td></tr>
+        <tr><td>cleancv-top</td><td>cleancv-right</td><td>[experimental] cleancv-us</td></tr>
         <tr><td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="300"></td>
             <td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300"></td>
+            <td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_us.png" width="300"></td>
         </tr>
     </tbody>
 </table>
@@ -141,3 +142,5 @@ credit for the signature example goes to [SilkySignature](https://github.com/ww6
 <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="500">
 
 <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="500">
+
+<img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_us.png" width="500">

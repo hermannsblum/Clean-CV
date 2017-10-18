@@ -1,8 +1,13 @@
 # CV Template for LaTeX
 
-| cleancv-top | cleancv-right |
-| <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="300"> | <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300"> |
-
+<table>
+    <tbody align="top">
+        <tr><td>cleancv-top</td><td>cleancv-right</td></tr>
+        <tr><td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="300"></td>
+            <td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300"></td>
+        </tr>
+    </tbody>
+</table>
 
 ## Installation
 

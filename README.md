@@ -7,6 +7,10 @@
             <td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300"></td>
             <td><img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_us.png" width="300"></td>
         </tr>
+        <tr><td><a href="https://www.sharelatex.com/templates/59e722313971b8d36a51b55a">open in sharelatex</a></td>
+            <td><a href="https://www.sharelatex.com/templates/59e72ba93971b8d36a51b55b">open in sharelatex</a></td>
+            <td></td>
+        </tr>
     </tbody>
 </table>
 

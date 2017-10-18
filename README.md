@@ -1,12 +1,39 @@
 # CV Template for LaTeX
 
-<img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300">
+| cleancv-top | cleancv-right |
+| <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_top.png" width="300"> | <img src="https://github.com/hermannsblum/Clean-CV/blob/master/examples/info_right.png" width="300"> |
+
 
 ## Installation
 
-[Download](https://raw.githubusercontent.com/hermannsblum/Clean-CV/master/cleancv.sty) the `cleancv.sty` and include it to your document:
+### Linux & MacOS
 
-    \usepackage{cleancv}
+Some TeX Editors allow to add additional resources directly.
+Otherwise, probably the easiest way is to just add clean-cv to the local texmf tree.
+
+```bash
+# Create local texmf tree, be careful to get the subdirectories right
+## Linux
+mkdir -p ~/texmf/tex/latex/
+## MacOS
+mkdir -p ~/Library/texmf/tex/latex/
+
+# Clone amivtex and create symlink
+git clone https://github.com/hermannsblum/Clean-CV.git cleancv
+
+```
+
+No further steps necessary, it should be detected automatically.
+[More info here.](https://wiki.archlinux.org/index.php/TeX_Live#Install_.sty_files)
+
+### Windows
+
+MikTex has several options to add `.sty` files,
+e.g. a simple command line option `--include-directory=<your_cleancv_dir>`,
+which can be added in your Tex Editor.
+[More Info.](http://docs.miktex.org/manual/localadditions.html)
+
+
 
 This class is only tested against the following document settings:
 
@@ -28,39 +55,54 @@ Items are always grouped together in `cvgroups`:
 
 A basic CV document should have a title and section names:
 
-    \begin{document}
+```
+\begin{document}
 
-    \cvtitle{Curriculum Vitae}
+\begin{cvtitle}[yourpicture.jpg]
+    \cvinfoitem{\faGithub}{hermannsblum}\vskip3pt
+    \cvinfoitem{\faLinkedinSquare}{your-linkedin}
+\end{cvtitle}
 
-    \cvimage{example_fixtures/businesswoman-avatar-silhouette-by-Vexels.eps}
+\section{Education}
+\begin{cvgroup}
+    \cvitem{1970 - 1977}{Advanced Studies}
+\end{cvgroup}
+```
 
-    \section{Personal}
-    \begin{cvgroup}
-        \cvitem{Name}{Hermann Blum}
-        \cvitem{Date of Birth}{January 1, 2000}
-        \cvitem{Location of Birth}{north pole}
-    \end{cvgroup}
 
+### Title and Author Name
+
+Please specify both title and author, e.g.
+
+```
+\author{Hermann Blum}
+\title{CV}
+```
+
+These information will be used in the `cvtitle` environment and in the header of subsequent pages.
 
 ### Picture and Personal Information
 
-For personal information, the `cvinfoitem` command can help place text and icons (e.g. from the `fontawesome` package in a coherent way)
+Especially if you want to add a picture to your CV, it is recommended to create a 'header' using the `cvtitle` environment.
 
-    \cvinfoitem{\faEnvelopeO}{some@mail.com}
-
-You have the option to add a picture on the right side of the CV page and also place additional information there. This feature is called `cvinfo`.
-
-    \begin{cvinfo}
-        \cvpicture{path_tp_image.jpg}
-        \textbf{Hermann Blum}\\
-        \cvinfoitem[right]{\faEnvelopeO}{some@mail.com}\\
-    \end{cvinfo}
+```
+\begin{cvtitle}[yourpicture.jpg]
+    \cvinfoitem{\faGithub}{hermannsblum}\vskip3pt
+    \cvinfoitem{\faLinkedinSquare}{your-linkedin}
+\end{cvtitle}
+```
 
 The picture will be sized to the standard for CVs, which is a width of 3.5 cm.
 
-You may encounter difficulties with the wrapping around this image. This is due to the implementation of `wrapfigure`, which is used by this template. Please use the optional argument to the info-group to specify the number of lines / `cvgroup`s that should wrap around this info bar:
+Dependent on the document-class, cvtitle takes different arguments:
 
-    \begin{cvinfo}[<some number>]
+- `cleancv-top`: The environment has one optional argument for the path to the picture
+- `cleancv-right`: The environment takes 2 arguments: `\begin{cvtitle}[<picture>]{<num par>}`; `<num par>` is here the number of paragraphs that should float around the info bar on the right side. As latex is not able to find the correct number automatically, you will have to experiment with this number.
+
+Any text inside the environment is places into the corresponding spaces on top or the right.  
+For personal information, the `cvinfoitem` command can help place text and icons (e.g. from the `fontawesome` package in a coherent way), such that the distance between the first letter of the information and the center of the icon is always the same. Dependent on the documentclass, the icon will be placed in the left or right side of the description text automatically.
+
+    \cvinfoitem{\faEnvelopeO}{some@mail.com}
 
 ## Advanced Usage
 

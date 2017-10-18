@@ -33,7 +33,7 @@
     % gets defined later, we need this macro here to put everything inside the environment in the one content note of the header graphic.
     \startcvinfo%
 }{%
-    \end{tikzpicture}%
+    \end{tikzpicture}\Bigskip%
 }%
 % Anything in the cvtitle environment will be put into this content node. The node draws a minipage
 \def\startcvinfo#1\end{\node [anchor=north west, inner sep=0pt] at ([xshift=\parindent, yshift=-1cm]current page.north west)%

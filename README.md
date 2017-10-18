@@ -46,6 +46,8 @@ This class is only tested against the following document settings:
 
 ## Basic Usage
 
+To use one of the designs shown above, install the repository and set your documentclass to `cleancv-top` or `cleancv-right`.
+
 ### CV Items 
 Items in the CV always have content on the left and right side of the black line:
 
@@ -108,6 +110,10 @@ Any text inside the environment is places into the corresponding spaces on top o
 For personal information, the `cvinfoitem` command can help place text and icons (e.g. from the `fontawesome` package in a coherent way), such that the distance between the first letter of the information and the center of the icon is always the same. Dependent on the documentclass, the icon will be placed in the left or right side of the description text automatically.
 
     \cvinfoitem{\faEnvelopeO}{some@mail.com}
+    
+### Skill Indicators
+Many CVs, especially in the IT sector, require a skill-matrix. This template offers a comfortable function `skillbar` to produce an indicator for the skill level in the form of bullet points (see the previews for an example).  
+The basic usage is simply `\skillbar{2}` for a level 2 out of 3. If the level should be more detailed, the maximum skill level can be set as optional argument: `\skillbar[5]{4}` is a level 4 out of 5.
 
 ## Advanced Usage
 
@@ -122,12 +128,6 @@ You can add a short bold description to every item by providing it as an optiona
 You can move the vertical black line of the `cvgroup` more to the left or to the right by specifying its position on the page. `\cvbarpos` has to be a number between 0 (left) and 1 (right), it defaults to `0.2` and is a global setting for the document.
 
     \renewcommand{\cvbarpos}{0.3}
-
-### Author Name
-
-If you specify the author of the document, it will be added to the header (see example)
-
-    \author{Hermann Blum}
 
 
 # Credit
